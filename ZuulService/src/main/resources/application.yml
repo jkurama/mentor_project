@@ -1,0 +1,54 @@
+#Name of the application
+spring:
+  application:
+    name: ZuulService
+
+#Eureka server url for registering
+#This is eureka client
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:7090/eureka/
+#register url to server    
+
+instance:
+  hostname: localhost
+  
+server:
+  port: 8989
+  
+zuul:
+  prefix: /details
+  routes:
+#    userAccessService:
+#      path: /userservice/**
+#      service-id: USERACCESSSERVICE
+#    trainingsService:
+#      path: /trainingsService/**
+#      service-id: TRAININGSSERVICE
+    technologiesService:
+      path: /skillTech/**
+      service-id: TECHNOLOGIESSERVICE
+    trainingSkillsnewService:
+      path: /training/**
+      service-id: TRAININGSKILLSNEWSERVICE
+
+    userandmentorService:
+      path: /user/**
+      service-id: USERANDMENTORSERVICE
+
+    mentordetailsService:
+      path: /search/**
+      service-id: MENTORDETAILSSERVICE
+
+      #    mentorSkillCalendarService:
+#      path: /skillMentService/**
+#      service-id: MENTORSKILLCALENDARSERVICE
+#    paymentsService:
+#      path: /paymentService/**
+#      service-id: PAYMENTSSERVICE
+     
+     
+      
